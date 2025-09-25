@@ -1,7 +1,7 @@
 from flask import Blueprint, request, jsonify, current_app
 from models.user import User
 
-# ✅ define blueprint here
+
 users_blueprint = Blueprint("users", __name__)
 
 @users_blueprint.route("/", methods=["GET"])
