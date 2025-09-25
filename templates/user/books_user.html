@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+{% block title %}Browse Books{% endblock %}
+
+{% block content %}
+  <h1 class="text-xl font-bold mb-4">📖 Browse Books</h1>
+
+  <ul>
+    {% for book in books %}
+      <li class="mb-2">
+        {{ book.title }} by {{ book.author }} (ISBN: {{ book.isbn }})
+        {% if book.available %}
+          <form method="POST" action="/user/books/borrow/{{ book.isbn }}" style="display:inline;">
+            <button type="submit" class="bg-green-500 text-white px-2 py-1 rounded">Borrow</button>
+          </form>
+        {% else %}
+          <form method="POST" action="/user/books/return/{{ book.isbn }}" style="display:inline;">
+            <button type="submit" class="bg-yellow-500 text-white px-2 py-1 rounded">Return</button>
+          </form>
+        {% endif %}
+      </li>
+    {% else %}
+      <li>No books available.</li>
+    {% endfor %}
+  </ul>
+{% endblock %}

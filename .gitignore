@@ -1,0 +1,11 @@
+# Python cache and temporary files
+__pycache__/
+*.pyc
+
+# IDEs and OS files
+.DS_Store
+.idea/
+.vscode/
+
+# Build artifacts and logs
+*.log

@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>{% block title %}Library{% endblock %}</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-100 text-gray-900">
+  <nav class="bg-blue-600 text-white p-4 flex justify-between">
+    <a href="/" class="font-bold">📚 Library System</a>
+    <div>
+      <a href="/admin/dashboard" class="mr-4">Admin</a>
+      <a href="/user/dashboard">User</a>
+    </div>
+  </nav>
+
+  <main class="p-6">
+    {% block content %}{% endblock %}
+  </main>
+</body>
+</html>

@@ -1,0 +1,38 @@
+{% extends "base.html" %}
+{% block title %}Manage Books{% endblock %}
+
+{% block content %}
+  <h1 class="text-xl font-bold mb-4">📚 Manage Books</h1>
+
+  <!-- Add Book Form -->
+  <form method="POST" action="/admin/books/add" class="mb-6 bg-gray-100 p-4 rounded">
+    <h2 class="font-semibold">➕ Add a New Book</h2>
+    <input type="text" name="title" placeholder="Title" class="border p-2 w-full mb-2">
+    <input type="text" name="author" placeholder="Author" class="border p-2 w-full mb-2">
+    <input type="text" name="isbn" placeholder="ISBN" class="border p-2 w-full mb-2">
+    <input type="number" name="pages" placeholder="Pages" class="border p-2 w-full mb-2">
+    <input type="text" name="release_date" placeholder="Release Date" class="border p-2 w-full mb-2">
+    <input type="number" name="price" placeholder="Price" class="border p-2 w-full mb-2">
+    <button type="submit" class="bg-blue-600 text-white px-4 py-2 rounded">Add Book</button>
+  </form>
+
+  <!-- Book List -->
+  <h2 class="font-semibold mb-2">📖 Current Books</h2>
+  <ul>
+    {% for book in books %}
+      <li class="mb-2">
+        {{ book.title }} by {{ book.author }} (ISBN: {{ book.isbn }})
+        {% if book.available %}
+          <span class="text-green-600">Available</span>
+        {% else %}
+          <span class="text-red-600">Borrowed</span>
+        {% endif %}
+        <form method="POST" action="/admin/books/delete/{{ book.isbn }}" style="display:inline;">
+          <button type="submit" class="text-red-600 ml-2">🗑 Delete</button>
+        </form>
+      </li>
+    {% else %}
+      <li>No books available.</li>
+    {% endfor %}
+  </ul>
+{% endblock %}

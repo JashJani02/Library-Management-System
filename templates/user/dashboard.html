@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+{% block title %}User Dashboard{% endblock %}
+
+{% block content %}
+  <h1 class="text-xl font-bold mb-4">👤 User Dashboard</h1>
+
+  {% if user %}
+    <div class="mb-6 p-4 bg-gray-100 rounded">
+      <p><strong>Name:</strong> {{ user.name }}</p>
+      <p><strong>Email:</strong> {{ user.email }}</p>
+      <p><strong>User ID:</strong> {{ user.user_id }}</p>
+    </div>
+
+    <h2 class="font-semibold">📖 Borrowed Books</h2>
+    <ul>
+      {% for book in borrowed_books %}
+        <li>{{ book.title }} by {{ book.author }}</li>
+      {% else %}
+        <li>No borrowed books yet.</li>
+      {% endfor %}
+    </ul>
+  {% else %}
+    <p class="text-red-600">No user found (did you add one?).</p>
+  {% endif %}
+
+  <a href="/user/books" class="text-blue-600 underline">Browse Books</a>
+{% endblock %}

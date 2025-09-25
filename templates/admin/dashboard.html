@@ -1,0 +1,10 @@
+{% extends "base.html" %}
+{% block title %}Admin Dashboard{% endblock %}
+
+{% block content %}
+  <h1 class="text-xl font-bold">📊 Admin Dashboard</h1>
+  <p>Total Books: {{ total_books }}</p>
+  <p>Total Users: {{ total_users }}</p>
+  <a href="/admin/books" class="text-blue-600 underline">Manage Books</a> |
+  <a href="/admin/users" class="text-blue-600 underline">Manage Users</a>
+{% endblock %}
