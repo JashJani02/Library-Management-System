@@ -1,5 +1,10 @@
 #!/bin/bash
-BASE="http://127.0.0.1:5000"
+#INSTRUCTIONS ON HOW TO USE THIS FILE
+# 1. Start the flask server
+# 2. In a New Terminal, go-to the tests folder via cd <directory>/tests
+# 3. Run the file
+
+BASE="http://127.0.0.1:5000" # port might be different.
 
 echo "--- Testing Root ---"
 curl -s $BASE/ | head -n 10
