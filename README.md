@@ -9,7 +9,7 @@ This project demonstrates server–client separation with both API endpoints (fo
 ```mermaid
 
 graph TD
-    subgraph Library Management System
+    subgraph Library Management
 
         app.py
 
