@@ -202,7 +202,7 @@ graph TD
 </li></ol>
 
 ## Future Improvements
-<ol><li>Add user authentication & roles (librarian vs user)</li><li>Improve UI with Tailwind components (modals, tables, forms)</li>Extend services with external APIs (Google Books, OpenLibrary)<li></li></ol>
+<ol><li>Add user authentication & roles (librarian vs user)</li><li>Improve UI with Tailwind components (modals, tables, forms)</li><li>Extend services with external APIs (Google Books, OpenLibrary)</li></ol>
 
 
 
