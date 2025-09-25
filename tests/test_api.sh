@@ -1,6 +1,6 @@
 #!/bin/bash
 #INSTRUCTIONS ON HOW TO USE THIS FILE
-# 1. Start the flask server
+# 1. Start the flask server (run the app.py file)
 # 2. In a New Terminal, go-to the tests folder via cd <directory>/tests
 # 3. Run the file
 
