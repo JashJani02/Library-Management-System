@@ -1,7 +1,7 @@
 from flask import Blueprint, request, jsonify, current_app
 from models.book import Book
 
-# ✅ define blueprint here
+
 books_blueprint = Blueprint("books", __name__)
 
 @books_blueprint.route("/", methods=["GET"])
