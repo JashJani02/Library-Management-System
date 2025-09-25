@@ -2,10 +2,10 @@ from flask import Blueprint, render_template, request, redirect, url_for, curren
 from models.book import Book
 from models.user import User
 
-# ✅ use relative path for templates
+
 admin_blueprint = Blueprint("admin", __name__, template_folder="/templates/admin")
 
-# 📊 Admin Dashboard
+
 @admin_blueprint.route("/dashboard")
 def dashboard():
     library = current_app.config["LIBRARY"]
@@ -17,13 +17,13 @@ def dashboard():
         total_users=user_manager.count_users()
     )
 
-# 📚 Manage Books
+
 @admin_blueprint.route("/books", methods=["GET"])
 def manage_books():
     library = current_app.config["LIBRARY"]
     return render_template("admin/books_admin.html", books=library.books)
 
-# ➕ Add Book
+
 @admin_blueprint.route("/books/add", methods=["POST"])
 def add_book():
     library = current_app.config["LIBRARY"]
@@ -40,20 +40,20 @@ def add_book():
 
     return redirect(url_for("admin.manage_books"))
 
-# 🗑 Delete Book
+
 @admin_blueprint.route("/books/delete/<isbn>", methods=["POST"])
 def delete_book(isbn):
     library = current_app.config["LIBRARY"]
     library.remove_book(isbn)
     return redirect(url_for("admin.manage_books"))
 
-# 👥 Manage Users
+
 @admin_blueprint.route("/users", methods=["GET"])
 def manage_users():
     user_manager = current_app.config["USER_MANAGER"]
     return render_template("admin/users_admin.html", users=user_manager.users)
 
-# ➕ Add User
+
 @admin_blueprint.route("/users/add", methods=["POST"])
 def add_user():
     user_manager = current_app.config["USER_MANAGER"]
@@ -69,7 +69,7 @@ def add_user():
 
     return redirect(url_for("admin.manage_users"))
 
-# 🗑 Delete User
+
 @admin_blueprint.route("/users/delete/<int:user_id>", methods=["POST"])
 def delete_user(user_id):
     user_manager = current_app.config["USER_MANAGER"]
